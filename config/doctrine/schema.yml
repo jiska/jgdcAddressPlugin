@@ -1,0 +1,299 @@
+# see http://www.kokudo.or.jp/master/record.html
+AreaMaster:
+  columns:
+    id:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      autoincrement: true
+    code:
+      type: string(11)
+      notnull: true
+      fixed: true
+    city_master_code:
+      type: string(5)
+      notnull: true
+      fixed: true
+    prefecture_master_code:
+      type: string(2)
+      notnull: true
+      fixed: true
+    group_name:
+      type: string(255)
+    name:
+      type: string(255)
+    display_label:
+      type: string(255)
+    display_label_kana:
+      type: string(255)
+    display_order:
+      type: integer(1)
+      unsigned: true
+      default: 0
+      notnull: true
+    enabled_flag:
+      type: boolean
+      default: true
+      notnull: true
+  indexes:
+    code:
+      fields: [code]
+      type: unique
+CityMaster:
+  columns:
+    id:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      autoincrement: true
+    code:
+      type: string(5)
+      notnull: true
+      fixed: true
+    prefecture_master_code:
+      type: string(2)
+      notnull: true
+      fixed: true
+    group_name:
+      type: string(255)
+    name:
+      type: string(255)
+    display_label:
+      type: string(255)
+    display_label_kana:
+      type: string(255)
+    display_order:
+      type: integer(1)
+      unsigned: true
+      default: 0
+      notnull: true
+    enabled_flag:
+      type: boolean
+      default: true
+      notnull: true
+  indexes:
+    code:
+      fields: [code]
+      type: unique
+JgdcAddressMaster:
+  comment: '町、字、丁目マスターデータ'
+  columns:
+    ma_code:
+      type: string(11)
+      notnull: true
+      fixed: true
+      comment: '町・字コード'
+    new_ma_code:
+      type: string(11)
+      notnull: true
+      fixed: true
+      comment: '新町・字コード'
+    zip_code:
+      type: string(7)
+      comment: '郵便番号'
+    barcode:
+      type: string(13)
+      comment: 'カスタマバーコード情報　バーコード情報'
+    barcode_length:
+      type: integer(1)
+      comment: 'カスタマバーコード情報　文字数'
+    zip_code_additional_info_1:
+      type: string(1)
+      comment: '郵便番号関連情報１'
+    zip_code_additional_info_2:
+      type: string(1)
+      comment: '郵便番号関連情報２'
+    relation_flag:
+      type: string(1)
+      comment: '親子関係　識別フラグ'
+    relation_ma_code:
+      type: string(11)
+      fixed: true
+      comment: '親子関係　対応コード'
+    no_prefecture_name_code:
+      type: integer(1)
+      default: 0
+      notnull: true
+      comment: '県名不要コード　１：政令指定都市　０：それ以外'
+    prefecture_name_kana:
+      type: string(8)
+      comment: 'カナ地名　都道府県名'
+    city_name_kana:
+      type: string(24)
+      comment: 'カナ地名　市区郡町村名'
+    area_name_kana:
+      type: string(36)
+      comment: 'カナ地名　大字・通称名'
+    address_kana:
+      type: string(24)
+      comment: 'カナ地名　字名・丁目'
+    prefecture_name_kana_length:
+      type: integer(1)
+      unsigned: true
+      comment: 'カナ地名文字数　都道府県名'
+    city_name_kana_length:
+      type: integer(1)
+      unsigned: true
+      comment: 'カナ地名文字数　市区郡町村名'
+    area_name_kana_length:
+      type: integer(1)
+      unsigned: true
+      comment: 'カナ地名文字数　大字・通称名'
+    address_kana_length:
+      type: integer(1)
+      unsigned: true
+      comment: 'カナ地名文字数　字名・丁目'
+    total_kana_length:
+      type: integer(2)
+      unsigned: true
+      comment: 'カナ地名文字数　都道府県名'
+    prefecture_name:
+      type: string(8)
+      comment: '漢字地名　都道府県名'
+    city_name:
+      type: string(24)
+      comment: '漢字地名　市区郡町村名'
+    area_name:
+      type: string(36)
+      comment: '漢字地名　大字・通称名'
+    address:
+      type: string(24)
+      comment: '漢字地名　字名・丁目'
+    prefecture_name_length:
+      type: integer(1)
+      unsigned: true
+      comment: '漢字地名文字数　都道府県名'
+    city_name_length:
+      type: integer(1)
+      unsigned: true
+      comment: '漢字地名文字数　市区郡町村名'
+    area_name_length:
+      type: integer(1)
+      unsigned: true
+      comment: '漢字地名文字数　大字・通称名'
+    address_length:
+      type: integer(1)
+      unsigned: true
+      comment: '漢字地名文字数　字名・丁目'
+    total_length:
+      type: integer(2)
+      unsigned: true
+      comment: '漢字地名文字数　都道府県名'
+    jistype_prefecture_name:
+      type: integer(1)
+      unsigned: true
+      comment: '字種情報　都道府県名'
+    jistype_city_name_1:
+      type: integer(1)
+      unsigned: true
+      comment: '字種情報　市区郡町村名１'
+    jistype_city_name_2:
+      type: integer(1)
+      unsigned: true
+      comment: '字種情報　市区郡町村名２'
+    jistype_area_name_1:
+      type: integer(1)
+      unsigned: true
+      comment: '字種情報　大字・通称名１'
+    jistype_area_name_2:
+      type: integer(1)
+      unsigned: true
+      comment: '字種情報　大字・通称名２'
+    jistype_address_1:
+      type: integer(1)
+      unsigned: true
+      comment: '字種情報　字名・丁目１'
+    jistype_address_2:
+      type: integer(1)
+      unsigned: true
+      comment: '字種情報　字名・丁目２'
+    address_flag_1:
+      type: integer(1)
+      unsigned: true
+      comment: '大字・字フラグ（１）'
+    address_flag_2:
+      type: integer(1)
+      unsigned: true
+      comment: '字・小字フラグ（２）'
+    nickname_type:
+      type: integer(1)
+      unsigned: true
+      comment: '通り名識別'
+    nickname_flag:
+      type: string(1)
+      comment: '通称フラグ'
+    open_year_month:
+      type: integer(1)
+      unsigned: true
+      comment: '施行年月'
+    close_year_month:
+      type: integer(1)
+      unsigned: true
+      comment: '廃止年月'
+    new_ma_code_year_month:
+      type: integer(1)
+      unsigned: true
+      comment: '新町・字コード年月'
+    renamed_year_month:
+      type: integer(1)
+      unsigned: true
+      comment: '呼称変更年月'
+    renumberd_zip_code_year_month:
+      type: integer(1)
+      unsigned: true
+      comment: 'カスタマバーコード情報変更年月'
+    changed_relation_year_month:
+      type: integer(1)
+      unsigned: true
+      comment: '親子関係変更年月'
+    changed_nickname_flag_year_month:
+      type: integer(1)
+      unsigned: true
+      comment: '通称フラグ変更年月'
+    changed_address_year_month:
+      type: integer(1)
+      unsigned: true
+      comment: '地番変更年月'
+    old_zip_code:
+      type: string(5)
+      comment: '旧５桁郵便番号'
+    old_zip_code:
+      type: string(5)
+      comment: '旧５桁郵便番号'
+    unnecessary_field:
+      type: string(8)
+      comment: '余白（！？）'
+    edit_code:
+      type: integer(1)
+      unsigned: true
+      comment: '修正コード'
+  indexes:
+    ma_code:
+      fields: [ma_code]
+      type: unique
+    new_ma_code:
+      fields: [new_ma_code]
+      type: unique
+PrefectureMaster:
+  columns:
+    id:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      autoincrement: true
+    code:
+      type: string(2)
+      notnull: true
+      fixed: true
+    name:
+      type: string(255)
+    display_order:
+      type: integer(1)
+      unsigned: true
+      default: 0
+      notnull: true
+  indexes:
+    code:
+      fields: [code]
+      type: unique
+
