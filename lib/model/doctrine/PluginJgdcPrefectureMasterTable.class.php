@@ -22,4 +22,20 @@ class PluginJgdcPrefectureMasterTable extends Doctrine_Table
 
     return $model->getName();
   }
+
+  /**
+   * Return All Prefecture list
+   *
+   * @return array (prefecture_code => name, ....)
+   */
+   public static function getPrefectures()
+   {
+     return
+       Doctrine_Core::getTable('JgdcPrefectureMaster')
+       ->createQuery()
+       ->select('code, name')
+       ->orderBy('display_order')
+       ->execute()
+       ->toKeyValueArray('code', 'name');
+   }
 }
