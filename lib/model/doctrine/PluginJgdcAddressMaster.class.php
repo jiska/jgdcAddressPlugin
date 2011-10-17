@@ -31,4 +31,14 @@ abstract class PluginJgdcAddressMaster extends BaseJgdcAddressMaster
   {
     return substr($this->getNewMaCode(), 0, 5);
   }
+
+  /**
+   * Return Area code
+   *
+   * @return string Area code
+   */
+  public function getAreaCode()
+  {
+    return substr($this->getNewMaCode(), 5, 6);
+  }
 }
