@@ -5,4 +5,4 @@ $configuration = ProjectConfiguration::getApplicationConfiguration('frontend', '
 
 new sfDatabaseManager($configuration);
 
-Doctrine_Core::loadData(sfConfig::get('sf_test_dir') . '/fixtures');
+Doctrine_Core::loadData(__DIR__ . '/../fixtures');
