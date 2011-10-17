@@ -12,5 +12,23 @@
  */
 abstract class PluginJgdcAddressMaster extends BaseJgdcAddressMaster
 {
+  /**
+   * Return Prefecture code
+   *
+   * @return string Prefecture code
+   */
+  public function getPrefectureCode()
+  {
+    return substr($this->getNewMaCode(), 0, 2);
+  }
 
+  /**
+   * Return City code
+   *
+   * @return string City code
+   */
+  public function getCityCode()
+  {
+    return substr($this->getNewMaCode(), 0, 5);
+  }
 }
