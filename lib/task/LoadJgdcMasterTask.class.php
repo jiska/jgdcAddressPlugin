@@ -50,11 +50,14 @@ EOF;
     $reader->open();
     $i = 1;
     while ($data = $reader->read()) {
+      if (50 !== count($data)) {
+        throw new sfException(sprintf('jgdc_master_file field count does not match 50. check file "%s" line %d.', $filepath, $i));
+      }
+
       $jgdc_address = JgdcAddressMasterTable::getInstance()->findOneByNewMaCode($data[1]);
       if (false === $jgdc_address) {
         $jgdc_address = new JgdcAddressMaster;
       }
-
       $jgdc_address->setMaCode($data[0]);
       $jgdc_address->setNewMaCode($data[1]);
       $jgdc_address->setZipCode($data[2]);
@@ -84,14 +87,14 @@ EOF;
       $jgdc_address->setAddressLength($data[26]);
       $jgdc_address->setTotalLength($data[27]);
       $jgdc_address->setJistype_prefectureName($data[28]);
-      $jgdc_address->setJistypeCityName_1($data[29]);
-      $jgdc_address->setJistypeCityName_2($data[30]);
-      $jgdc_address->setJistypeAreaName_1($data[31]);
-      $jgdc_address->setJistypeAreaName_2($data[32]);
-      $jgdc_address->setJistypeAddress_1($data[33]);
-      $jgdc_address->setJistypeAddress_2($data[34]);
-      $jgdc_address->setAddressFlag_1($data[35]);
-      $jgdc_address->setAddressFlag_2($data[36]);
+      $jgdc_address->setJistypeCityName1($data[29]);
+      $jgdc_address->setJistypeCityName2($data[30]);
+      $jgdc_address->setJistypeAreaName1($data[31]);
+      $jgdc_address->setJistypeAreaName2($data[32]);
+      $jgdc_address->setJistypeAddress1($data[33]);
+      $jgdc_address->setJistypeAddress2($data[34]);
+      $jgdc_address->setAddressFlag1($data[35]);
+      $jgdc_address->setAddressFlag2($data[36]);
       $jgdc_address->setNicknameType($data[37]);
       $jgdc_address->setNicknameFlag($data[38]);
       $jgdc_address->setOpenYearMonth($data[39]);
