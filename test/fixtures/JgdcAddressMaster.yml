@@ -51,4 +51,56 @@ JgdcAddressMaster:
     old_zip_code: 
     unnecessary_field: 
     edit_code: 
+  JgdcAddressMaster_2:
+    ma_code: '01100000000'
+    new_ma_code: '01100000000'
+    zip_code: 
+    barcode: 
+    barcode_length: 
+    zip_code_additional_info1: 
+    zip_code_additional_info2: 
+    relation_flag: 
+    relation_ma_code: 
+    no_prefecture_name_code: 
+    prefecture_name_kana: 
+    city_name_kana: 
+    area_name_kana: 
+    address_kana: 
+    prefecture_name_kana_length: 
+    city_name_kana_length: 
+    area_name_kana_length: 
+    address_kana_length: 
+    total_kana_length: 
+    prefecture_name: 北海道
+    city_name: 札幌市
+    area_name: 
+    address: 
+    prefecture_name_length: 
+    city_name_length: 
+    area_name_length: 
+    address_length: 
+    total_length: 
+    jistype_prefecture_name: 
+    jistype_city_name1: 
+    jistype_city_name2: 
+    jistype_area_name1: 
+    jistype_area_name2: 
+    jistype_address1: 
+    jistype_address2: 
+    address_flag1: 
+    address_flag2: 
+    nickname_type: 
+    nickname_flag: 
+    open_year_month: 
+    close_year_month: 
+    new_ma_code_year_month: 
+    renamed_year_month: 
+    renumberd_zip_code_year_month: 
+    changed_barcode_year_month: 
+    changed_relation_year_month: 
+    changed_nickname_flag_year_month: 
+    changed_address_year_month: 
+    old_zip_code: 
+    unnecessary_field: 
+    edit_code: 
 
