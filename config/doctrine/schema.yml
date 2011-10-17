@@ -165,6 +165,10 @@ JgdcAddressMaster:
     renumberd_zip_code_year_month:
       type: integer(1)
       unsigned: true
+      comment: '郵便番号変更'
+    changed_barcode_year_month:
+      type: integer(1)
+      unsigned: true
       comment: 'カスタマバーコード情報変更年月'
     changed_relation_year_month:
       type: integer(1)
