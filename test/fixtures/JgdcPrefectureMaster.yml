@@ -1,0 +1,11 @@
+JgdcPrefectureMaster:
+  hokkaido:
+    code: '01'
+    name: '北海道'
+  tokyo:
+    code: '13'
+    name: '東京都'
+  okinawa:
+    code: '47'
+    name: '沖縄県'
+
