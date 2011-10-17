@@ -44,7 +44,7 @@ EOF;
       throw new sfException(sprintf('jgdc_address_file "%s" does not exist (or can not readable).', $filepath));
     }
 
-    $this->log('process start.');
+    $this->logSection('jgdc', 'process start.');
 
     $reader = new sfCsvReader($filepath);
     $reader->open();
