@@ -54,61 +54,61 @@ EOF;
         throw new sfException(sprintf('jgdc_master_file field count does not match 51. check file "%s" line %d.', $filepath, $i));
       }
 
-      $jgdc_address = JgdcAddressMasterTable::getInstance()->findOneByNewMaCode($data[1]);
+      $jgdc_address = JgdcAddressMasterTable::getInstance()->findOneByNewMaCode($this->trim_mbspace($data[1]));
       if (false === $jgdc_address) {
         $jgdc_address = new JgdcAddressMaster;
       }
-      $jgdc_address->setMaCode($data[0]);
-      $jgdc_address->setNewMaCode($data[1]);
-      $jgdc_address->setZipCode($data[2]);
-      $jgdc_address->setBarcode($data[3]);
-      $jgdc_address->setBarcodeLength($data[4]);
-      $jgdc_address->setZipCodeAdditionalInfo1($data[5]);
-      $jgdc_address->setZipCodeAdditionalInfo2($data[6]);
-      $jgdc_address->setRelationFlag($data[7]);
-      $jgdc_address->setRelationMaCode($data[8]);
-      $jgdc_address->setNoPrefectureNameCode($data[9]);
-      $jgdc_address->setPrefectureNameKana($data[10]);
-      $jgdc_address->setCityNameKana($data[11]);
-      $jgdc_address->setAreaNameKana($data[12]);
-      $jgdc_address->setAddressKana($data[13]);
-      $jgdc_address->setPrefectureNameKanaLength($data[14]);
-      $jgdc_address->setCityNameKanaLength($data[15]);
-      $jgdc_address->setAreaNameKanaLength($data[16]);
-      $jgdc_address->setAddressKanaLength($data[17]);
-      $jgdc_address->setTotalKanaLength($data[18]);
-      $jgdc_address->setPrefectureName($data[19]);
-      $jgdc_address->setCityName($data[20]);
-      $jgdc_address->setAreaName($data[21]);
-      $jgdc_address->setAddress($data[22]);
-      $jgdc_address->setPrefectureNameLength($data[23]);
-      $jgdc_address->setCityNameLength($data[24]);
-      $jgdc_address->setAreaNameLength($data[25]);
-      $jgdc_address->setAddressLength($data[26]);
-      $jgdc_address->setTotalLength($data[27]);
-      $jgdc_address->setJistype_prefectureName($data[28]);
-      $jgdc_address->setJistypeCityName1($data[29]);
-      $jgdc_address->setJistypeCityName2($data[30]);
-      $jgdc_address->setJistypeAreaName1($data[31]);
-      $jgdc_address->setJistypeAreaName2($data[32]);
-      $jgdc_address->setJistypeAddress1($data[33]);
-      $jgdc_address->setJistypeAddress2($data[34]);
-      $jgdc_address->setAddressFlag1($data[35]);
-      $jgdc_address->setAddressFlag2($data[36]);
-      $jgdc_address->setNicknameType($data[37]);
-      $jgdc_address->setNicknameFlag($data[38]);
-      $jgdc_address->setOpenYearMonth($data[39]);
-      $jgdc_address->setCloseYearMonth($data[40]);
-      $jgdc_address->setNewMaCodeYearMonth($data[41]);
-      $jgdc_address->setRenamedYearMonth($data[42]);
-      $jgdc_address->setRenumberdZipCodeYearMonth($data[43]);
-      $jgdc_address->setChangedBarcodeYearMonth($data[44]);
-      $jgdc_address->setChangedRelationYearMonth($data[45]);
-      $jgdc_address->setChangedNicknameFlagYearMonth($data[46]);
-      $jgdc_address->setChangedAddressYearMonth($data[47]);
-      $jgdc_address->setOldZipCode($data[48]);
-      $jgdc_address->setUnnecessaryField($data[49]);
-      $jgdc_address->setEditCode($data[50]);
+      $jgdc_address->setMaCode($this->trim_mbspace($data[0]));
+      $jgdc_address->setNewMaCode($this->trim_mbspace($data[1]));
+      $jgdc_address->setZipCode($this->trim_mbspace($data[2]));
+      $jgdc_address->setBarcode($this->trim_mbspace($data[3]));
+      $jgdc_address->setBarcodeLength($this->trim_mbspace($data[4]));
+      $jgdc_address->setZipCodeAdditionalInfo1($this->trim_mbspace($data[5]));
+      $jgdc_address->setZipCodeAdditionalInfo2($this->trim_mbspace($data[6]));
+      $jgdc_address->setRelationFlag($this->trim_mbspace($data[7]));
+      $jgdc_address->setRelationMaCode($this->trim_mbspace($data[8]));
+      $jgdc_address->setNoPrefectureNameCode($this->trim_mbspace($data[9]));
+      $jgdc_address->setPrefectureNameKana($this->trim_mbspace($data[10]));
+      $jgdc_address->setCityNameKana($this->trim_mbspace($data[11]));
+      $jgdc_address->setAreaNameKana($this->trim_mbspace($data[12]));
+      $jgdc_address->setAddressKana($this->trim_mbspace($data[13]));
+      $jgdc_address->setPrefectureNameKanaLength($this->trim_mbspace($data[14]));
+      $jgdc_address->setCityNameKanaLength($this->trim_mbspace($data[15]));
+      $jgdc_address->setAreaNameKanaLength($this->trim_mbspace($data[16]));
+      $jgdc_address->setAddressKanaLength($this->trim_mbspace($data[17]));
+      $jgdc_address->setTotalKanaLength($this->trim_mbspace($data[18]));
+      $jgdc_address->setPrefectureName($this->trim_mbspace($data[19]));
+      $jgdc_address->setCityName($this->trim_mbspace($data[20]));
+      $jgdc_address->setAreaName($this->trim_mbspace($data[21]));
+      $jgdc_address->setAddress($this->trim_mbspace($data[22]));
+      $jgdc_address->setPrefectureNameLength($this->trim_mbspace($data[23]));
+      $jgdc_address->setCityNameLength($this->trim_mbspace($data[24]));
+      $jgdc_address->setAreaNameLength($this->trim_mbspace($data[25]));
+      $jgdc_address->setAddressLength($this->trim_mbspace($data[26]));
+      $jgdc_address->setTotalLength($this->trim_mbspace($data[27]));
+      $jgdc_address->setJistype_prefectureName($this->trim_mbspace($data[28]));
+      $jgdc_address->setJistypeCityName1($this->trim_mbspace($data[29]));
+      $jgdc_address->setJistypeCityName2($this->trim_mbspace($data[30]));
+      $jgdc_address->setJistypeAreaName1($this->trim_mbspace($data[31]));
+      $jgdc_address->setJistypeAreaName2($this->trim_mbspace($data[32]));
+      $jgdc_address->setJistypeAddress1($this->trim_mbspace($data[33]));
+      $jgdc_address->setJistypeAddress2($this->trim_mbspace($data[34]));
+      $jgdc_address->setAddressFlag1($this->trim_mbspace($data[35]));
+      $jgdc_address->setAddressFlag2($this->trim_mbspace($data[36]));
+      $jgdc_address->setNicknameType($this->trim_mbspace($data[37]));
+      $jgdc_address->setNicknameFlag($this->trim_mbspace($data[38]));
+      $jgdc_address->setOpenYearMonth($this->trim_mbspace($data[39]));
+      $jgdc_address->setCloseYearMonth($this->trim_mbspace($data[40]));
+      $jgdc_address->setNewMaCodeYearMonth($this->trim_mbspace($data[41]));
+      $jgdc_address->setRenamedYearMonth($this->trim_mbspace($data[42]));
+      $jgdc_address->setRenumberdZipCodeYearMonth($this->trim_mbspace($data[43]));
+      $jgdc_address->setChangedBarcodeYearMonth($this->trim_mbspace($data[44]));
+      $jgdc_address->setChangedRelationYearMonth($this->trim_mbspace($data[45]));
+      $jgdc_address->setChangedNicknameFlagYearMonth($this->trim_mbspace($data[46]));
+      $jgdc_address->setChangedAddressYearMonth($this->trim_mbspace($data[47]));
+      $jgdc_address->setOldZipCode($this->trim_mbspace($data[48]));
+      $jgdc_address->setUnnecessaryField($this->trim_mbspace($data[49]));
+      $jgdc_address->setEditCode($this->trim_mbspace($data[50]));
 
       $jgdc_address->save();
       unset($jgdc_address);
@@ -117,5 +117,14 @@ EOF;
       $i ++;
     }
     $reader->close();
+
+    $this->logSection('jgdc', 'all process finish.');
+ }
+
+  public function trim_mbspace($string)
+  {
+    $string = trim($string);
+    $string = trim($string, '　');
+    return $string;
   }
 }
