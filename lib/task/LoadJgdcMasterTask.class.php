@@ -50,8 +50,8 @@ EOF;
     $reader->open();
     $i = 1;
     while ($data = $reader->read()) {
-      if (50 !== count($data)) {
-        throw new sfException(sprintf('jgdc_master_file field count does not match 50. check file "%s" line %d.', $filepath, $i));
+      if (51 !== count($data)) {
+        throw new sfException(sprintf('jgdc_master_file field count does not match 51. check file "%s" line %d.', $filepath, $i));
       }
 
       $jgdc_address = JgdcAddressMasterTable::getInstance()->findOneByNewMaCode($data[1]);
@@ -63,8 +63,8 @@ EOF;
       $jgdc_address->setZipCode($data[2]);
       $jgdc_address->setBarcode($data[3]);
       $jgdc_address->setBarcodeLength($data[4]);
-      $jgdc_address->setZipCodeAdditionalInfo_1($data[5]);
-      $jgdc_address->setZipCodeAdditionalInfo_2($data[6]);
+      $jgdc_address->setZipCodeAdditionalInfo1($data[5]);
+      $jgdc_address->setZipCodeAdditionalInfo2($data[6]);
       $jgdc_address->setRelationFlag($data[7]);
       $jgdc_address->setRelationMaCode($data[8]);
       $jgdc_address->setNoPrefectureNameCode($data[9]);
