@@ -213,11 +213,11 @@ JgdcAreaMaster:
       type: string(11)
       notnull: true
       fixed: true
-    city_master_code:
+    jgdc_city_master_code:
       type: string(5)
       notnull: true
       fixed: true
-    prefecture_master_code:
+    jgdc_prefecture_master_code:
       type: string(2)
       notnull: true
       fixed: true
@@ -244,10 +244,10 @@ JgdcAreaMaster:
       type: unique
   relations:
     JgdcPrefectureMaster:
-      local: prefecture_master_code
+      local: jgdc_prefecture_master_code
       foreign: code
     JgdcCityMaster:
-      local: city_master_code
+      local: jgdc_city_master_code
       foreign: code
 JgdcCityMaster:
   columns:
@@ -260,7 +260,7 @@ JgdcCityMaster:
       type: string(5)
       notnull: true
       fixed: true
-    prefecture_master_code:
+    jgdc_prefecture_master_code:
       type: string(2)
       notnull: true
       fixed: true
@@ -287,7 +287,7 @@ JgdcCityMaster:
       type: unique
   relations:
     JgdcPrefectureMaster:
-      local: prefecture_master_code
+      local: jgdc_prefecture_master_code
       foreign: code
 JgdcPrefectureMaster:
   columns:
