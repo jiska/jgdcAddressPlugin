@@ -45,4 +45,24 @@ class PluginJgdcAddressMasterTable extends Doctrine_Table
        ->orderBy('new_ma_code')
        ->execute();
   }
+
+  /**
+   * Return All area.
+   *
+   * http://www.kokudo.or.jp/master/record.html
+   * 県のデータ（県コード２桁＋０００００００００）及び市区（郡）町村のデータ（ＪＩＳ５桁＋００００００）も入っています。
+   * 但し、郡データについては、北海道の郡部、東京都の島しょを除きます。
+   *
+   * @return Doctrine_Record JgdcAddressMaster Area
+   */
+  public static function getAllArea()
+  {
+     return
+       Doctrine_Core::getTable('JgdcAddressMaster')
+       ->createQuery()
+       ->where('new_ma_code NOT LIKE ?', '%000000')
+       ->addWhere('new_ma_code NOT LIKE ?', '%000000000')
+       ->orderBy('new_ma_code')
+       ->execute();
+  }
 }
