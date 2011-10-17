@@ -1,80 +1,4 @@
 # see http://www.kokudo.or.jp/master/record.html
-AreaMaster:
-  columns:
-    id:
-      type: integer(4)
-      unsigned: true
-      primary: true
-      autoincrement: true
-    code:
-      type: string(11)
-      notnull: true
-      fixed: true
-    city_master_code:
-      type: string(5)
-      notnull: true
-      fixed: true
-    prefecture_master_code:
-      type: string(2)
-      notnull: true
-      fixed: true
-    group_name:
-      type: string(255)
-    name:
-      type: string(255)
-    display_label:
-      type: string(255)
-    display_label_kana:
-      type: string(255)
-    display_order:
-      type: integer(1)
-      unsigned: true
-      default: 0
-      notnull: true
-    enabled_flag:
-      type: boolean
-      default: true
-      notnull: true
-  indexes:
-    code:
-      fields: [code]
-      type: unique
-CityMaster:
-  columns:
-    id:
-      type: integer(4)
-      unsigned: true
-      primary: true
-      autoincrement: true
-    code:
-      type: string(5)
-      notnull: true
-      fixed: true
-    prefecture_master_code:
-      type: string(2)
-      notnull: true
-      fixed: true
-    group_name:
-      type: string(255)
-    name:
-      type: string(255)
-    display_label:
-      type: string(255)
-    display_label_kana:
-      type: string(255)
-    display_order:
-      type: integer(1)
-      unsigned: true
-      default: 0
-      notnull: true
-    enabled_flag:
-      type: boolean
-      default: true
-      notnull: true
-  indexes:
-    code:
-      fields: [code]
-      type: unique
 JgdcAddressMaster:
   comment: '町、字、丁目マスターデータ'
   columns:
@@ -97,10 +21,10 @@ JgdcAddressMaster:
     barcode_length:
       type: integer(1)
       comment: 'カスタマバーコード情報　文字数'
-    zip_code_additional_info_1:
+    zip_code_additional_info1:
       type: string(1)
       comment: '郵便番号関連情報１'
-    zip_code_additional_info_2:
+    zip_code_additional_info2:
       type: string(1)
       comment: '郵便番号関連情報２'
     relation_flag:
@@ -183,35 +107,35 @@ JgdcAddressMaster:
       type: integer(1)
       unsigned: true
       comment: '字種情報　都道府県名'
-    jistype_city_name_1:
+    jistype_city_name1:
       type: integer(1)
       unsigned: true
       comment: '字種情報　市区郡町村名１'
-    jistype_city_name_2:
+    jistype_city_name2:
       type: integer(1)
       unsigned: true
       comment: '字種情報　市区郡町村名２'
-    jistype_area_name_1:
+    jistype_area_name1:
       type: integer(1)
       unsigned: true
       comment: '字種情報　大字・通称名１'
-    jistype_area_name_2:
+    jistype_area_name2:
       type: integer(1)
       unsigned: true
       comment: '字種情報　大字・通称名２'
-    jistype_address_1:
+    jistype_address1:
       type: integer(1)
       unsigned: true
       comment: '字種情報　字名・丁目１'
-    jistype_address_2:
+    jistype_address2:
       type: integer(1)
       unsigned: true
       comment: '字種情報　字名・丁目２'
-    address_flag_1:
+    address_flag1:
       type: integer(1)
       unsigned: true
       comment: '大字・字フラグ（１）'
-    address_flag_2:
+    address_flag2:
       type: integer(1)
       unsigned: true
       comment: '字・小字フラグ（２）'
@@ -274,7 +198,94 @@ JgdcAddressMaster:
     new_ma_code:
       fields: [new_ma_code]
       type: unique
-PrefectureMaster:
+JgdcAreaMaster:
+  columns:
+    id:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      autoincrement: true
+    code:
+      type: string(11)
+      notnull: true
+      fixed: true
+    city_master_code:
+      type: string(5)
+      notnull: true
+      fixed: true
+    prefecture_master_code:
+      type: string(2)
+      notnull: true
+      fixed: true
+    group_name:
+      type: string(255)
+    name:
+      type: string(255)
+    display_label:
+      type: string(255)
+    display_label_kana:
+      type: string(255)
+    display_order:
+      type: integer(1)
+      unsigned: true
+      default: 0
+      notnull: true
+    enabled_flag:
+      type: boolean
+      default: true
+      notnull: true
+  indexes:
+    code:
+      fields: [code]
+      type: unique
+  relations:
+    JgdcPrefectureMaster:
+      local: prefecture_master_code
+      foreign: code
+    JgdcCityMaster:
+      local: city_master_code
+      foreign: code
+JgdcCityMaster:
+  columns:
+    id:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      autoincrement: true
+    code:
+      type: string(5)
+      notnull: true
+      fixed: true
+    prefecture_master_code:
+      type: string(2)
+      notnull: true
+      fixed: true
+    group_name:
+      type: string(255)
+    name:
+      type: string(255)
+    display_label:
+      type: string(255)
+    display_label_kana:
+      type: string(255)
+    display_order:
+      type: integer(1)
+      unsigned: true
+      default: 0
+      notnull: true
+    enabled_flag:
+      type: boolean
+      default: true
+      notnull: true
+  indexes:
+    code:
+      fields: [code]
+      type: unique
+  relations:
+    JgdcPrefectureMaster:
+      local: prefecture_master_code
+      foreign: code
+JgdcPrefectureMaster:
   columns:
     id:
       type: integer(4)
