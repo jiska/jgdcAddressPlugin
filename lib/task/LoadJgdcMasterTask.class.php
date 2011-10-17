@@ -118,7 +118,7 @@ EOF;
     }
     $reader->close();
 
-    $this->logSection('jgdc', 'all process finish.');
+    $this->logSection('jgdc', sprintf('all process finish. total %d records.', $i));
  }
 
   public function trim_mbspace($string)
