@@ -221,13 +221,11 @@ JgdcAreaMaster:
       type: string(2)
       notnull: true
       fixed: true
-    group_name:
-      type: string(255)
+    zip_code:
+      type: string(7)
     name:
       type: string(255)
-    display_label:
-      type: string(255)
-    display_label_kana:
+    address:
       type: string(255)
     display_order:
       type: integer(1)
@@ -264,13 +262,7 @@ JgdcCityMaster:
       type: string(2)
       notnull: true
       fixed: true
-    group_name:
-      type: string(255)
     name:
-      type: string(255)
-    display_label:
-      type: string(255)
-    display_label_kana:
       type: string(255)
     display_order:
       type: integer(1)
