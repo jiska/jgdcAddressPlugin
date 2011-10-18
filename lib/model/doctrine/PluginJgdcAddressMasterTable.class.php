@@ -61,7 +61,6 @@ class PluginJgdcAddressMasterTable extends Doctrine_Table
        Doctrine_Core::getTable('JgdcAddressMaster')
        ->createQuery()
        ->where('new_ma_code NOT LIKE ?', '%000000')
-       ->addWhere('new_ma_code NOT LIKE ?', '%000000000')
        ->orderBy('new_ma_code')
        ->execute();
   }
