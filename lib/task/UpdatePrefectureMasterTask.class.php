@@ -33,8 +33,8 @@ EOF;
 
     $this->logSection('jgdc', 'process start.');
 
-    $i = 1;
-    foreach (JgdcAddressMasterTable::getAllCities() as $address) {
+    $i = 0;
+    foreach (JgdcAddressMasterTable::getAllPrefectures() as $address) {
       $prefecture_code = $address->getPrefectureCode();
       $prefecture = JgdcPrefectureMasterTable::getInstance()->findOneByCode($prefecture_code);
       if (false === $prefecture) {
@@ -47,10 +47,10 @@ EOF;
       $prefecture->save();
       unset($prefecture);
 
-      if (0 === $i % 100) $this->log(sprintf('%s records preceed.', $i));
       $i ++;
+      if (0 === $i % 100) $this->log(sprintf('%s records preceed.', $i));
     }
 
-    $this->logSection('jgdc', sprintf('all process finish. total %d records.', $i));
+    $this->logSection('jgdc', sprintf('all process finish. total %d record%s.', $i, ($i >= 2) ? 's' : ''));
   }
 }
