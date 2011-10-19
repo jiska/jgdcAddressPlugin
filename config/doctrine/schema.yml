@@ -243,9 +243,11 @@ JgdcAreaMaster:
   relations:
     JgdcPrefectureMaster:
       local: jgdc_prefecture_master_code
+      type: many
       foreign: code
     JgdcCityMaster:
       local: jgdc_city_master_code
+      type: many
       foreign: code
 JgdcCityMaster:
   columns:
@@ -280,6 +282,7 @@ JgdcCityMaster:
   relations:
     JgdcPrefectureMaster:
       local: jgdc_prefecture_master_code
+      type: many
       foreign: code
 JgdcPrefectureMaster:
   columns:
