@@ -204,11 +204,6 @@ JgdcAddressMaster:
       type: unique
 JgdcAreaMaster:
   columns:
-    id:
-      type: integer(4)
-      unsigned: true
-      primary: true
-      autoincrement: true
     code:
       type: string(11)
       notnull: true
@@ -251,11 +246,6 @@ JgdcAreaMaster:
       foreign: code
 JgdcCityMaster:
   columns:
-    id:
-      type: integer(4)
-      unsigned: true
-      primary: true
-      autoincrement: true
     code:
       type: string(5)
       notnull: true
@@ -286,11 +276,6 @@ JgdcCityMaster:
       foreign: code
 JgdcPrefectureMaster:
   columns:
-    id:
-      type: integer(4)
-      unsigned: true
-      primary: true
-      autoincrement: true
     code:
       type: string(2)
       notnull: true
