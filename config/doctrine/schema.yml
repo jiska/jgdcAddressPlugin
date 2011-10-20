@@ -6,11 +6,13 @@ JgdcAddressMaster:
       type: string(11)
       notnull: true
       fixed: true
+      unique: true
       comment: '町・字コード'
     new_ma_code:
       type: string(11)
       notnull: true
       fixed: true
+      unique: true
       comment: '新町・字コード'
     zip_code:
       type: string(7)
@@ -195,13 +197,6 @@ JgdcAddressMaster:
       type: integer(1)
       unsigned: true
       comment: '修正コード'
-  indexes:
-    ma_code:
-      fields: [ma_code]
-      type: unique
-    new_ma_code:
-      fields: [new_ma_code]
-      type: unique
 JgdcAreaMaster:
   columns:
     id:
@@ -214,14 +209,15 @@ JgdcAreaMaster:
       type: string(11)
       notnull: true
       fixed: true
-    jgdc_city_master_code:
-      type: string(5)
+      unique: true
+    jgdc_city_master_id:
+      type: integer(4)
       notnull: true
-      fixed: true
-    jgdc_prefecture_master_code:
-      type: string(2)
+      unsigned: true
+    jgdc_prefecture_master_id:
+      type: integer(4)
       notnull: true
-      fixed: true
+      unsigned: true
     zip_code:
       type: string(7)
     name:
@@ -238,19 +234,18 @@ JgdcAreaMaster:
       default: true
       notnull: true
   indexes:
-    code:
-      fields: [code]
-      type: unique
+    zip_code:
+      fields: [zip_code]
   relations:
     JgdcPrefectureMaster:
-      local: jgdc_prefecture_master_code
+      local: jgdc_prefecture_master_id
       type: one
-      foreign: code
+      foreign: id
       foreignType: many
     JgdcCityMaster:
-      local: jgdc_city_master_code
+      local: jgdc_city_master_id
       type: one
-      foreign: code
+      foreign: id
       foreignType: many
 JgdcCityMaster:
   columns:
@@ -264,10 +259,11 @@ JgdcCityMaster:
       type: string(5)
       notnull: true
       fixed: true
-    jgdc_prefecture_master_code:
-      type: string(2)
+      unique: true
+    jgdc_prefecture_master_id:
+      type: integer(4)
       notnull: true
-      fixed: true
+      unsigned: true
     name:
       type: string(255)
     display_order:
@@ -279,15 +275,11 @@ JgdcCityMaster:
       type: boolean
       default: true
       notnull: true
-  indexes:
-    code:
-      fields: [code]
-      type: unique
   relations:
     JgdcPrefectureMaster:
-      local: jgdc_prefecture_master_code
-      foreign: code
+      local: jgdc_prefecture_master_id
       type: one
+      foreign: id
       foreignType: many
 JgdcPrefectureMaster:
   columns:
@@ -301,6 +293,7 @@ JgdcPrefectureMaster:
       type: string(2)
       notnull: true
       fixed: true
+      unique: true
     name:
       type: string(255)
     display_order:
@@ -308,8 +301,4 @@ JgdcPrefectureMaster:
       unsigned: true
       default: 0
       notnull: true
-  indexes:
-    code:
-      fields: [code]
-      type: unique
 
