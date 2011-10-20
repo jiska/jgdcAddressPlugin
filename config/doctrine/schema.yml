@@ -204,6 +204,12 @@ JgdcAddressMaster:
       type: unique
 JgdcAreaMaster:
   columns:
+    id:
+      type: integer(4)
+      notnull: true
+      unsigned: true
+      primary: true
+      autoincrement: true
     code:
       type: string(11)
       notnull: true
@@ -238,14 +244,22 @@ JgdcAreaMaster:
   relations:
     JgdcPrefectureMaster:
       local: jgdc_prefecture_master_code
-      type: many
+      type: one
       foreign: code
+      foreignType: many
     JgdcCityMaster:
       local: jgdc_city_master_code
-      type: many
+      type: one
       foreign: code
+      foreignType: many
 JgdcCityMaster:
   columns:
+    id:
+      type: integer(4)
+      notnull: true
+      unsigned: true
+      primary: true
+      autoincrement: true
     code:
       type: string(5)
       notnull: true
@@ -272,10 +286,17 @@ JgdcCityMaster:
   relations:
     JgdcPrefectureMaster:
       local: jgdc_prefecture_master_code
-      type: many
       foreign: code
+      type: one
+      foreignType: many
 JgdcPrefectureMaster:
   columns:
+    id:
+      type: integer(4)
+      notnull: true
+      unsigned: true
+      primary: true
+      autoincrement: true
     code:
       type: string(2)
       notnull: true
