@@ -197,6 +197,10 @@ JgdcAddressMaster:
       type: integer(1)
       unsigned: true
       comment: '修正コード'
+  options:
+    symfony:
+      form: false
+      filter: false
 JgdcAreaMaster:
   columns:
     id:
@@ -247,6 +251,10 @@ JgdcAreaMaster:
       type: one
       foreign: id
       foreignType: many
+  options:
+    symfony:
+      form: false
+      filter: false
 JgdcCityMaster:
   columns:
     id:
@@ -281,6 +289,10 @@ JgdcCityMaster:
       type: one
       foreign: id
       foreignType: many
+  options:
+    symfony:
+      form: false
+      filter: false
 JgdcPrefectureMaster:
   columns:
     id:
@@ -301,4 +313,8 @@ JgdcPrefectureMaster:
       unsigned: true
       default: 0
       notnull: true
+  options:
+    symfony:
+      form: false
+      filter: false
 
